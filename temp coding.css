@@ -1,0 +1,506 @@
+/* =========================
+   DESIGN SYSTEM (VARIABLES)
+========================= */
+:root {
+    --bg: #f8fafc;
+    --text: #0f172a;
+    --card: #ffffff;
+    --card-hover: #f9fafb;
+    --border: #e5e7eb;
+    --muted: #64748b;
+
+    --btn-bg: #0f172a;
+    --btn-text: #ffffff;
+
+    --nav-hover: #575a5f;
+
+    --shadow: 0 4px 20px rgba(0,0,0,0.05);
+    --radius: 12px;
+}
+
+body.dark {
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --card: #1f2a3a;
+    --card-hover: #263447;
+    --border: #1e293b;
+    --muted: #b0b8c5;
+
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+
+    --nav-hover: #868c96;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 15px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    font-weight: 600;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--nav-hover);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--nav-hover);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+#theme-toggle {
+    padding: 6px 12px;
+    border: none;
+    background: var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.btn-explore {
+    padding: 10px 20px;
+    border: none;
+    background: var(--btn-bg);
+    margin-top: 10px;
+    color: var(--btn-text);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    min-height: calc(100vh - 80px); /* adjust ikut navbar height */
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+
+    padding-top: 120px; /* control position */
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.hero-image img {
+    width: 180px;
+    border-radius: 50%;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero-text p:nth-child(2) {
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.hero-text p:nth-child(3) {
+    font-size: 16px;
+    max-width: 420px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   SECTION
+========================= */
+section {
+    max-width: 900px;
+    margin: 100px auto;
+    scroll-margin-top: 100px;
+    padding: 0 20px;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+section:hover {
+    opacity: 1;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   PROJECT
+========================= */
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    padding: 20px;
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: 0s;
+
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.project-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    background: var(--card-hover);
+}
+
+.project-card p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* STAGGER */
+.project-card.show:nth-child(1) { transition-delay: 0.1s; }
+.project-card.show:nth-child(2) { transition-delay: 0.2s; }
+.project-card.show:nth-child(3) { transition-delay: 0.3s; }
+
+.date {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+/* =========================
+   LOGO SYSTEM (FINAL)
+========================= */
+
+/* Container */
+.project-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+/* Single logo wrapper */
+.logo {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* Image control */
+.logo img {
+    max-height: 100%;
+    max-width: 140px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Multi logo (GRID FIX) */
+.project-logos.multi-logo {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px 30px;
+    justify-content: start;
+}
+
+/* Center multi logos */
+.multi-logo .logo {
+    justify-content: center;
+}
+
+/* Optical balance */
+.logo-ad img {
+    transform: scale(1.2);
+    transform-origin: left center;
+}
+
+.logo-ws img {
+    transform: scale(1.2);
+    transform-origin: left center;
+}
+
+/* Hover */
+.project-card:hover .logo img {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.skill-card {
+    background: var(--card);
+    color: var(--text);
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.skill-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    background: var(--card-hover);
+}
+
+/* =========================
+   EXPERIENCE 
+========================= */
+
+.experience-card {
+    position: relative;
+    margin-left: 25px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+
+    opacity: 0;
+    transform: translateX(40px);
+
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-card.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.experience-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.experience {
+    position: relative;
+    opacity: 1;
+    transform: none;
+}
+
+/* TIMELINE LINE ANIMATION */
+.experience::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background: var(--border);
+    transition: height 1s ease;
+}
+
+.experience.show::before {
+    height: 100%;
+}
+
+/* TIMELINE DOT ANIMATION */
+.experience-card::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: var(--text);
+    border-radius: 50%;
+
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.experience-card.show::before {
+    transform: scale(1);
+}
+
+/* STAGGER */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* EXPERIENCE CONTENT */
+.experience-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.experience-card ul li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+}
+
+.experience-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-image img {
+        width: 140px;
+    }
+
+    section {
+        margin: 50px auto;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+/* =========================
+   GLOBAL
+========================= */
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   NAV ACTIVE (SCROLL)
+========================= */
+
+window.addEventListener("scroll", () => {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-links a[href^='#']:not([href='#'])");
+
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop - 150 &&
+            window.scrollY < sectionTop + sectionHeight - 150) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        const href = link.getAttribute("href");
+
+        if (!href || href === "#") return;
+
+        if (href === `#${current}`) {
+            link.classList.add("active");
+        }
+    });
+});
