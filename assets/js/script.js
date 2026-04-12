@@ -153,28 +153,27 @@ function initScrollSpy() {
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".nav-links a[href^='#']:not([href='#'])");
 
-    if (!sections.length || !navLinks.length) return;
+    function updateActive() {
+        let currentSection = "";
 
-   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.id;
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
 
-            navLinks.forEach(link => {
-                link.classList.remove("active");
+            if (rect.top <= 120 && rect.bottom >= 120) {
+                currentSection = section.id;
+            }
+        });
 
-                if (link.getAttribute("href") === `#${id}`) {
-                    link.classList.add("active");
-                }
-            });
-        }
-    });
-}, {
-    threshold: 0.25,
-    rootMargin: "-80px 0px -20% 0px"
-});
+        navLinks.forEach(link => {
+            link.classList.remove("active");
 
-    sections.forEach(section => observer.observe(section));
+            if (link.getAttribute("href") === `#${currentSection}`) {
+                link.classList.add("active");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", updateActive);
 }
 
 /* =========================
