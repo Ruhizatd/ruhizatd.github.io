@@ -157,9 +157,8 @@ function initScrollSpy() {
 
    const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-
         if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
+            const id = entry.target.id;
 
             navLinks.forEach(link => {
                 link.classList.remove("active");
@@ -169,11 +168,10 @@ function initScrollSpy() {
                 }
             });
         }
-
     });
 }, {
-    threshold: 0.3,
-    rootMargin: "-80px 0px -40% 0px"
+    threshold: 0.25,
+    rootMargin: "-80px 0px -20% 0px"
 });
 
     sections.forEach(section => observer.observe(section));
