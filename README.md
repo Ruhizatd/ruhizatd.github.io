@@ -1,4 +1,4 @@
-# 🌐 Ruhizat Portfolio
+# Ruhizat Portfolio
 
 A modern and responsive personal portfolio website showcasing my experience in IT support, system administration, and web development.
 

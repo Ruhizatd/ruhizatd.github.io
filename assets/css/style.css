@@ -343,7 +343,7 @@ body.dark .nav-links a.active {
     color: var(--text);
     font-size: 13px;
 
-    transition: background 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 .resume-menu a:hover {
@@ -502,6 +502,23 @@ body.dark .hero {
     font-size: 13px;
     color: var(--muted);
     margin-bottom: 10px;
+}
+
+/* Project BUTTON */
+.project-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    background: #325be2;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.project-btn:hover {
+    opacity: 0.9;
 }
 
 /* 🔥 PROJECT IMAGE CONTROL */
